@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ella Getz Wold</title>
+<meta name="description" content="Ella Getz Wold, Associate Professor of Finance at BI Norwegian Business School. Household finance, housing economics, macroeconomics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky identity column on the left, research ledger on the right; stacks to one column on phones. */
+:root {
+  --bg: #f5f6f3;
+  --surface: #ffffff;
+  --ink: #17212a;
+  --muted: #5b6670;
+  --rule: #d9ddd8;
+  --accent: #1f5a4e;
+  --accent-soft: #e3ece8;
+  --gold: #8a6a1f;
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11171c; --surface: #172028; --ink: #e8ece9; --muted: #9aa6ae;
+    --rule: #2a353e; --accent: #7cc4b2; --accent-soft: #1b2e2b; --gold: #d8b766;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11171c; --surface: #172028; --ink: #e8ece9; --muted: #9aa6ae;
+  --rule: #2a353e; --accent: #7cc4b2; --accent-soft: #1b2e2b; --gold: #d8b766;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, summary:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-block: 56px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: 72px;
+}
+
+/* Identity column */
+.id { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 40px); align-self: start; display: flex; flex-direction: column; gap: 22px; }
+.portrait {
+  width: 136px; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; display: block;
+  filter: brightness(1.18) contrast(0.92);
+}
+.roofline { width: 100%; max-width: 260px; height: auto; display: block; }
+.roofline path { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-linejoin: round; }
+.roofline .door { fill: var(--accent); stroke: none; }
+h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 5vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 em { font-style: italic; color: var(--accent); }
+.role { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.5; }
+.role strong { color: var(--ink); font-weight: 600; }
+.fields { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.fields li {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+  border: 1px solid var(--rule); border-radius: 999px; padding: 4px 10px; color: var(--ink);
+}
+nav.toc { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--rule); padding-top: 18px; }
+nav.toc a { color: var(--muted); text-decoration: none; font-size: 0.95rem; display: flex; justify-content: space-between; }
+nav.toc a:hover { color: var(--accent); }
+nav.toc span { font-family: var(--mono); font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+
+.contact { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--rule); padding-top: 18px; }
+.contact-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.contact-row code { font-family: var(--mono); font-size: 0.82rem; user-select: all; overflow-wrap: anywhere; }
+.copy {
+  font: 500 0.72rem var(--mono); text-transform: uppercase; letter-spacing: 0.06em;
+  background: none; border: 1px solid var(--rule); color: var(--muted); border-radius: 4px;
+  padding: 3px 8px; cursor: pointer; flex-shrink: 0;
+}
+.copy:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Main column */
+main { min-width: 0; display: flex; flex-direction: column; gap: 64px; }
+.about p { margin: 0 0 14px; max-width: 64ch; font-size: 1.12rem; }
+.about p:first-child::first-line { font-weight: 500; }
+.about p.boards { font-size: 0.98rem; color: var(--muted); }
+
+section h2 {
+  font-family: var(--display); font-weight: 500; font-size: 1.9rem; margin: 0 0 6px;
+  display: flex; align-items: baseline; gap: 14px;
+}
+section h2 .n { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-weight: 400; }
+.sub { color: var(--muted); margin: 0 0 20px; font-size: 0.95rem; }
+
+.papers { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.paper { padding: 22px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 20px; }
+.paper .yr { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); padding-top: 4px; font-variant-numeric: tabular-nums; }
+.paper h3 { font-family: var(--body); font-weight: 600; font-size: 1.15rem; line-height: 1.35; margin: 0 0 4px; text-wrap: balance; }
+.paper h3 a { color: var(--ink); text-decoration: none; background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0 1px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .25s ease; }
+.paper h3 a:hover { background-size: 100% 1px; color: var(--accent); }
+.with { color: var(--muted); margin: 0; font-size: 0.97rem; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: 10px; }
+.venue { font-family: var(--display); font-style: italic; font-size: 1.05rem; }
+.chip {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 3px; background: var(--accent-soft); color: var(--accent);
+}
+.chip.award { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+.chip.plain { background: transparent; color: var(--muted); border: 1px solid var(--rule); }
+.press { font-size: 0.88rem; color: var(--muted); }
+.press a { color: var(--muted); }
+.press a:hover { color: var(--accent); }
+
+details { margin-top: 10px; }
+summary {
+  cursor: pointer; list-style: none; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--accent); display: inline-flex; align-items: center; gap: 6px;
+}
+summary::-webkit-details-marker { display: none; }
+summary::before { content: "+"; font-size: 0.95rem; width: 0.8em; }
+details[open] summary::before { content: "\2212"; }
+details p { margin: 10px 0 0; max-width: 64ch; color: var(--ink); font-size: 0.98rem; }
+
+.no { font-family: var(--display); }
+footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--rule); padding-top: 18px; }
+
+@media (max-width: 860px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 44px; padding-block: 32px 56px; }
+  .id { position: static; }
+  nav.toc { display: none; }
+}
+@media (max-width: 520px) {
+  .paper { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  body { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <aside class="id">
+    <img class="portrait" src="photo.jpg" width="320" height="400" alt="Portrait of Ella Getz Wold">
+    <!-- Row of gabled houses: a nod to the housing research -->
+    <svg class="roofline" viewBox="0 0 260 64" aria-hidden="true">
+      <path d="M2 62 V34 L22 14 L42 34 V62 M42 62 V40 L58 24 L74 40 V62 M74 62 V28 L98 6 L122 28 V62 M122 62 V38 L140 20 L158 38 V62 M158 62 V32 L180 12 L202 32 V62 M202 62 V42 L218 28 L234 42 V62 M234 62 V36 L246 24 L258 36 V62 M0 62 H260"/>
+      <rect class="door" x="93" y="46" width="10" height="16"/>
+    </svg>
+    <h1>Ella <em>Getz</em> Wold</h1>
+    <p class="role"><strong>Associate Professor of Finance</strong><br>BI Norwegian Business School<br>Research Fellow, Housing Lab</p>
+    <ul class="fields">
+      <li>Household finance</li>
+      <li>Housing</li>
+      <li>Macroeconomics</li>
+    </ul>
+    <nav class="toc" aria-label="Sections">
+      <a href="#publications">Publications</a>
+      <a href="#working-papers">Working papers</a>
+      <a href="#in-progress">Work in progress</a>
+      <a href="#norwegian">På norsk</a>
+    </nav>
+    <div class="contact">
+      <div class="contact-row"><code id="mail-bi">ella.g.wold@bi.no</code><button class="copy" type="button" data-copy="mail-bi">Copy</button></div>
+      <div class="contact-row"><code id="mail-gm">ella.getz.wold@gmail.com</code><button class="copy" type="button" data-copy="mail-gm">Copy</button></div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="about" id="about" aria-label="About">
+      <p>I am an Associate Professor in the Department of Finance at BI Norwegian Business School and a Research Fellow at the Housing Lab. I study how households borrow, save and buy homes, and how regulation and monetary policy shape those choices.</p>
+      <p>I hold a PhD in Economics from Brown University. Before joining BI, I worked at Norges Bank.</p>
+      <p class="boards">I currently serve on the boards of the Financial Supervisory Authority of Norway (Finanstilsynet) and the Norwegian Financial Markets Fund (Finansmarkedsfondet).</p>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <p class="sub">Peer-reviewed articles</p>
+      <ol class="papers">
+        <li class="paper">
+          <div class="yr">2024</div>
+          <div>
+            <h3><a href="https://norges-bank.brage.unit.no/norges-bank-xmlui/bitstream/handle/11250/2652985/wp_17_2019.pdf?sequence=1&amp;isAllowed=y">The Saving and Employment Effects of Higher Job Loss Risk</a></h3>
+            <p class="with">with Ragnar E. Juelsrud</p>
+            <div class="meta">
+              <span class="venue">Management Science</span>
+              <span class="chip award">8th SUERF/UniCredit Foundation Research Prize</span>
+            </div>
+            <details><summary>Abstract</summary><p>In this paper we use Norwegian tax data and a novel natural experiment to isolate the impact of job loss risk on saving behavior. We find that a one percentage point increase in job loss risk increases liquid savings by roughly 1.2–2.0 percent. Further, we show that employment falls in non-tradable industries not directly affected by the shock, also after controlling for intersectoral linkages and lower demand from affected industries, consistent with the household demand channel of recessions.</p></details>
+          </div>
+        </li>
+        <li class="paper">
+          <div class="yr">2023</div>
+          <div>
+            <h3><a href="https://www.nber.org/papers/w25416">Negative Nominal Interest Rates and the Bank Lending Channel</a></h3>
+            <p class="with">with Gauti B. Eggertsson, Ragnar E. Juelsrud and Lawrence H. Summers</p>
+            <div class="meta">
+              <span class="venue">Review of Economic Studies</span>
+              <span class="press">Press: <a href="https://www.bloomberg.com/news/articles/2019-01-07/summers-rejects-negative-rates-as-potential-crisis-fighting-tool">Bloomberg</a> · <a href="https://www.bloomberg.com/news/articles/2017-11-21/this-central-bank-crisis-tool-might-actually-hurt-eco-pulse">Bloomberg</a> · <a href="https://www.wsj.com/articles/negative-rates-have-little-impact-1517480258">WSJ</a></span>
+            </div>
+            <details><summary>Abstract</summary><p>We investigate the bank lending channel of negative nominal policy rates from an empirical and theoretical perspective. We find that retail household deposit rates are subject to a lower bound (DLB). Empirically, once the DLB is met, the pass-through to lending rates and credit volumes is substantially lower and bank equity values decline in response to further policy rate cuts. We construct a banking sector model and use our estimate of the pass-through of negative policy rates to lending rates as an identified moment to parameterize the model and assess the impact of negative policy rates in general equilibrium. Using the theoretical framework, we derive a sufficient statistic for when negative policy rates are expansionary and when they are not.</p></details>
+          </div>
+        </li>
+        <li class="paper">
+          <div class="yr">2021</div>
+          <div>
+            <h3><a href="https://www.sciencedirect.com/science/article/pii/S030439322100101X">Kaldor and Piketty’s Facts: The Rise of Monopoly Power in the United States</a></h3>
+            <p class="with">with Gauti B. Eggertsson and Jacob A. Robbins</p>
+            <div class="meta">
+              <span class="venue">Journal of Monetary Economics</span>
+              <span class="press">Press: <a href="https://www.bloomberg.com/news/articles/2018-02-12/economists-say-the-rise-of-monopoly-power-explains-five-puzzling-trends">Bloomberg</a> · <a href="https://www.nytimes.com/2018/02/13/business/economy/profits-economy.html">New York Times</a></span>
+            </div>
+            <details><summary>Abstract</summary><p>The macroeconomic data of the last fifty years have overturned at least two of Kaldor’s famous stylized growth facts: constant interest rates, and a constant labor share. At the same time, the research of Piketty and others has introduced several new and surprising facts: an increase in the financial wealth-to-output ratio in the US, an increase in measured Tobin’s Q, and a divergence between the marginal and average returns on capital. In this paper, we argue that these trends can be explained by an increase in market power and pure profits in the US economy—that is, the emergence of a non-zero-rent economy—along with forces that have led to a persistent long-term decline in real interest rates. We make three parsimonious modifications to the standard neoclassical model to explain these trends. Using recent estimates of the increase in markups and the decrease in real interest rates, we show that our model can quantitatively match these new stylized macroeconomic facts.</p></details>
+          </div>
+        </li>
+        <li class="paper">
+          <div class="yr">2020</div>
+          <div>
+            <h3><a href="https://www.sciencedirect.com/science/article/pii/S1042957318300755">Risk-Weighted Capital Requirements and Portfolio Rebalancing</a></h3>
+            <p class="with">with Ragnar E. Juelsrud</p>
+            <div class="meta"><span class="venue">Journal of Financial Intermediation</span></div>
+            <details><summary>Abstract</summary><p>We use a 2013 Norwegian policy reform to study how banks react to higher capital requirements and how these adjustments transmit to the real economy. Using bank balance sheet data, we document that banks raise capital ratios by reducing risk-weighted assets. Most of the reduction in risk-weighted assets is accounted for by a reduction in average risk weights. Consistent with this reduction in risk, we document a substantial decline in credit supply to the corporate sector relative to the household sector. We also show that banks react to higher requirements by increasing interest rates, consistent with the reduction in corporate credit growth being supply driven. Using administrative loan level tax data, we document a reduction in lending on the firm level. This is robust to controlling for firm fixed effects, thereby accounting for potential firm-bank matching. Finally, we find that the reduction in bank lending has a negative impact on firm employment growth and that this effect is driven by small firms.</p></details>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="working-papers">
+      <h2>Working papers</h2>
+      <p class="sub">Under review and circulating</p>
+      <ol class="papers">
+        <li class="paper">
+          <div class="yr">2020</div>
+          <div>
+            <h3><a href="https://www.norges-bank.no/en/news-events/news-publications/Papers/Working-Papers/2020/62020/">The Household Effects of Mortgage Regulation</a></h3>
+            <p class="with">with Knut Are Aastveit and Ragnar E. Juelsrud</p>
+            <div class="meta">
+              <span class="chip">2nd round R&amp;R · AEJ: Macroeconomics</span>
+              <span class="press">Norges Bank WP 6/2020</span>
+            </div>
+            <details><summary>Abstract</summary><p>We evaluate the impact of mortgage regulation on child and parent household balance sheets, highlighting important trade-offs in terms of financial vulnerability. Using Norwegian tax data, we show that loan-to-value caps reduce house purchase probabilities, debt and interest expenses – thereby improving household solvency. Moreover, parents of first-time buyers also reduce their debt uptake, suggesting that concerns about regulatory arbitrage are unwarranted. However, the higher downpayment requirement also leads to a persistent deterioration of household liquidity. We show that this reduction in liquid buffers coincides with larger house sale propensities given unemployment, as households become more vulnerable to adverse income shocks.</p></details>
+          </div>
+        </li>
+        <li class="paper">
+          <div class="yr">2023</div>
+          <div>
+            <h3><a href="https://www.norges-bank.no/en/news-events/news-publications/Papers/Working-Papers/2023/wp-16-2023/">The Housing Channel of Intergenerational Wealth Persistence</a></h3>
+            <p class="with">with Knut Are Aastveit, Eirik E. Brandsaas, Ragnar E. Juelsrud and Gisle J. Natvik</p>
+            <div class="meta">
+              <span class="chip">R&amp;R · Journal of Financial Economics</span>
+              <span class="press">Norges Bank WP 16/2023</span>
+            </div>
+            <details><summary>Abstract</summary><p>We use Norwegian tax data and a life-cycle model with housing to study how wealth transmits across generations through the housing market. After controlling for a rich set of attributes, households with richer parents are nearly 15% more likely to be homeowners at age 30. Moreover, when entering, they have higher leverage and buy homes worth 15% more. Estimates using international stock market returns as a shiftshare instrument support a causal interpretation. We further document that housing outcomes when young are important determinants of midlife wealth. This holds also when using plausibly exogenous variation in homeownership caused by the timing of intra-family deaths. As a result, housing gaps caused purely by parental wealth explain 12% of intergenerational wealth persistence, making housing equally important as the combined impact of a wide range of household characteristics including income and education. We explore new mechanisms for parental support, such as intra-family housing transactions below market value. Through the lens of our model, house price expectations stand out as a key driver of the magnitude of the housing channel of intergenerational wealth persistence.</p></details>
+          </div>
+        </li>
+        <li class="paper">
+          <div class="yr">2025</div>
+          <div>
+            <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5333332">Regulating Entrepreneurship: The Case of Capital Requirements</a></h3>
+            <p class="with">with Annika Bacher, Andreas Fagereng and Marius Ring</p>
+            <div class="meta"><span class="press">SSRN 5333332</span></div>
+            <details><summary>Abstract</summary><p>Governments have a long history of regulating entrepreneurs’ use of limited liability by mandating a minimum amount of paid-in equity. While opponents argue that these requirements pose an unnecessary barrier to entrepreneurship, proponents maintain that they protect stakeholders, in part by screening out low-quality entrepreneurship. We exploit a 2012 Norwegian reform that lowered the capital requirement from $17,000 to $5,000 to study this quantity-quality tradeoff. Our setting includes detailed data on both firms and the underlying entrepreneurs, providing comprehensive proxies for entrepreneurial quality. We first show that incorporation rates double after the reform and remain elevated over time. Post-reform entrants are considerably smaller in terms of assets and revenues but do not differ in terms of growth, survival rates, profitability, productivity, or leverage. Furthermore, post-reform entrants have similar past income levels, age, and educational attainment as pre-reform entrants. We further find no difference in educational achievement, captured by proxies for quantitative skills, communication skills, physical ability, and illicit traits. Thus, while the reform led to an influx of smaller firms, there is no indication that new entrepreneurs or their firms were riskier or of lower quality. These findings challenge the existing motivation for capital requirements. In explaining the mechanism behind the increase in entry, we find no evidence that the reform alleviated financial constraints. Rather, our empirical findings and enriched entry model suggest that returns-to-scale heterogeneity plays an important role. Optimally small entrepreneurs have more concave production functions and only enter when capital requirements are low.</p></details>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="in-progress">
+      <h2>Work in progress</h2>
+      <p class="sub">Drafts on the way</p>
+      <ol class="papers">
+        <li class="paper">
+          <div class="yr">—</div>
+          <div>
+            <h3>Credit Constraints and Household Welfare: Lessons from Macroprudential Policies</h3>
+            <p class="with">with Claes Backman and Ragnar Enger Juelsrud</p>
+            <div class="meta"><span class="chip plain">In preparation · Journal of Economic Literature</span></div>
+          </div>
+        </li>
+        <li class="paper">
+          <div class="yr">—</div>
+          <div>
+            <h3>Social Media Entrepreneurship as a Stepping Stone</h3>
+            <p class="with">with Annika Bacher and Maria Olsson</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="norwegian" lang="no">
+      <h2>På norsk</h2>
+      <p class="sub">Artikler i Samfunnsøkonomen</p>
+      <ol class="papers">
+        <li class="paper">
+          <div class="yr">2025</div>
+          <div>
+            <h3><a href="https://www.samfunnsokonomen.no/tema/holder-statsbudsjettet-arbeidslinja/">Holder statsbudsjettet arbeidslinja?</a></h3>
+            <div class="meta"><span class="venue">Samfunnsøkonomen 5</span></div>
+          </div>
+        </li>
+        <li class="paper">
+          <div class="yr">2024</div>
+          <div>
+            <h3><a href="https://www.samfunnsokonomen.no/aktuell-analyse/hvordan-virker-utlansforskriften-en-oppsummering-av-forskningslitteraturen/">Hvordan virker utlånsforskriften? En oppsummering av forskningslitteraturen</a></h3>
+            <p class="with">med Jeanette Fjære-Lindkjenn, Knut Are Aastveit, Markus Karlman, Karin Kinnerud og Ragnar Juelsrud</p>
+            <div class="meta"><span class="venue">Samfunnsøkonomen 2</span></div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <footer>Ella Getz Wold · Department of Finance, BI Norwegian Business School, Oslo</footer>
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.copy);
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+    var fallback = function () { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(el.textContent).then(done, fallback);
+    } else { fallback(); }
+  });
+});
+</script>
+</body>
+</html>
